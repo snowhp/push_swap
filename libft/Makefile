@@ -42,6 +42,7 @@ SRCS = ft_strchr.c \
                           ft_printf.c \
                           ft_joinsplit.c \
                           ft_countchar.c \
+                          ft_atol.c \
 
 BNS_SRCS = ft_lstnew.c \
             ft_lstadd_front.c \
@@ -65,8 +66,11 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJS)																	
+$(NAME): $(OBJS)
 	$(LIBC) $(NAME) $(OBJS)
+
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
 
 bonus: $(BNS_OBJS) $(OBJS)
 	$(LIBC) $(NAME) $(BNS_OBJS) $(OBJS)

@@ -59,7 +59,16 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-/*	Bonus		*/
+
+/**
+ * @brief Allocates (with malloc(3)) and returns a new node.\a
+ * The member variable ’content’ is initialized with
+ * the value of the parameter ’content’. The variable
+ * ’next’ is initialized to NULL.
+ *
+ * @param content The content to create the node with."
+ * @return The new node
+ */
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -81,5 +90,6 @@ int		ft_printf(const char *str, ...);
 int		ft_check(const char *str, va_list ap);
 char	**ft_joinsplit(char *s, char c, char cj);
 int		ft_countchar(const char *str, char c);
+long	ft_atol(const char *nptr);
 
 #endif

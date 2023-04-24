@@ -15,4 +15,15 @@
 
 # include "./libft/libft.h"
 
+typedef struct s_stack
+{
+    long     content;
+    struct s_stack	*next;
+}				t_stack;
+
+void    ft_listinput(char **argv, int argc, t_stack head_a);
+int     ft_charsize(char **str);
+void    ft_printlist(t_stack head_a);
+void	ft_lstnewd(t_stack **head, long content);
+
 #endif

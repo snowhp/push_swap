@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 18:31:54 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/04/07 15:41:21 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/04/25 22:47:41 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,8 @@ int		ft_check(const char *str, va_list ap);
 char	**ft_joinsplit(char *s, char c, char cj);
 int		ft_countchar(const char *str, char c);
 long	ft_atol(const char *nptr);
+/* This function returns null if a not number is not the first char
+ * after spaces and signs */
+long	ft_atolnull(const char *nptr);
 
 #endif

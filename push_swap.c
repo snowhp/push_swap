@@ -6,11 +6,11 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 19:49:48 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/04/25 22:28:47 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/04/25 22:50:50 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "inc/push_swap.h"
 #include <stdio.h>
 
 int main(int argc, char **argv)
@@ -28,13 +28,20 @@ int main(int argc, char **argv)
 	else
 		ft_listinput(argv, argc, &head_a, 1);
 	ft_printlist(&head_a);
+	//ft_exit(&head_a);
 	/* Check for dups, max min int */
 }
 
-void    ft_listinput(char **argv, int argc, t_stack **head_a, int i)
-{
+void    ft_listinput(char **argv, int argc, t_stack **head_a, int i) {
+	int temp;
+
 	while (i < argc)
-		ft_addtail(head_a, ft_atol(argv[i++]));
+	{
+		temp = ft_atolnull(argv[i++]);
+		if (temp == NULL)
+			ft_exit(head_a, "not a number");
+		ft_addtail(head_a, temp);
+	}
 }
 
 int	ft_charsize(char **str)

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 19:49:48 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/04/24 17:50:49 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/04/25 22:28:47 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,18 @@ int main(int argc, char **argv)
 	head_a = 0;
 	//head_b = 0;
 	/* Read input */
-	ft_listinput(argv, argc, &head_a);
+	if (argc == 2)
+		ft_listinput(ft_split(argv[1], ' '), ft_charsize(ft_split(argv[1], ' ')), &head_a, 0);
+	else
+		ft_listinput(argv, argc, &head_a, 1);
 	ft_printlist(&head_a);
 	/* Check for dups, max min int */
 }
 
-void    ft_listinput(char **argv, int argc, t_stack **head_a)
+void    ft_listinput(char **argv, int argc, t_stack **head_a, int i)
 {
-	int	i;
-
-	if (argc == 2)
-		ft_listinput(ft_split(argv[1], ' '), ft_charsize(ft_split(argv[1], ' ')), head_a);
-	else {
-		i = 0;//Fix indexation for argv and ft_split (start with i = 1 or i = 0)
-		while (i < 4)
-			ft_addtail(head_a, ft_atol(argv[i++]));
-	}
+	while (i < argc)
+		ft_addtail(head_a, ft_atol(argv[i++]));
 }
 
 int	ft_charsize(char **str)
@@ -48,7 +44,7 @@ int	ft_charsize(char **str)
 	size = 0;
 	while(str[size])
 		size++;
-	return (++size);
+	return (size);
 }
 
 void    ft_printlist(t_stack **head_a)

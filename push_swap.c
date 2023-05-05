@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 19:49:48 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/04/24 17:50:49 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/05 12:22:05 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@ void    ft_listinput(char **argv, int argc, t_stack **head_a)
 
 	if (argc == 2)
 		ft_listinput(ft_split(argv[1], ' '), ft_charsize(ft_split(argv[1], ' ')), head_a);
-	else {
+	else
+	{
 		i = 0;//Fix indexation for argv and ft_split (start with i = 1 or i = 0)
+		if (ft_strncmp(argv[i], "./push_swap", sizeof(argv[i]) == 0))
+			i++;
 		while (i < 4)
 			ft_addtail(head_a, ft_atol(argv[i++]));
 	}
@@ -59,7 +62,6 @@ void    ft_printlist(t_stack **head_a)
 		(*head_a) = (*head_a)->next;
 		ft_printlist(head_a);
 	}
-	return ;
 }
 
 void	ft_addtail(t_stack **head, long content)

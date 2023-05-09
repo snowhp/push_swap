@@ -91,8 +91,5 @@ int		ft_check(const char *str, va_list ap);
 char	**ft_joinsplit(char *s, char c, char cj);
 int		ft_countchar(const char *str, char c);
 long	ft_atol(const char *nptr);
-/* This function returns null if a not number is not the first char
- * after spaces and signs */
-long	ft_atolnull(const char *nptr);
 
 #endif

@@ -2,6 +2,7 @@ SRCS = push_swap.c\
 		error/error.c \
 		check_arg.c \
 		moves.c \
+		sort/sort.c \
 
 OBJS = $(SRCS:.c=.o)
 

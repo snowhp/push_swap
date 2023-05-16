@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:56:03 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/16 22:00:31 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:17:08 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,18 @@ void    ft_sort3(t_stack **head)
 		ft_swap(head, 'a');
 		ft_rotatedown(head, 'a');
 	}
+}
+
+int		ft_listsorted(t_stack **head)
+{
+	t_stack *current;
+
+	current = *head;
+	while (current)
+	{
+		if(current->next && current->content > current->next->content)
+			return (1);
+		current = current->next;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 19:49:48 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/16 21:44:13 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:16:21 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main(int argc, char **argv)
 	ft_checkdups(&head_a);
     ft_sortlist(&head_a, &head_b);
     printlist(&head_a, &head_b);
+	ft_printf("List is sorted? %i", ft_listsorted(&head_a));
 	/* Check list for numbers, dups, intmax/min, already sorted*/
 	/* ft_exit */
 	/* Moves */

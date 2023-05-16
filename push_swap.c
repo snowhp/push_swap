@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 19:49:48 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/15 13:11:28 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/16 21:18:56 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	/* Check input */
-	check_arg(argv);
 	/* Read input */
+	check_arg(argv);
 	head_a = 0;
 	head_b = 0;
 	ft_insertlist(&head_a, argv);
-	//printlist(&head_a, &head_b);
+	ft_checkdups(&head_a);
     ft_sortlist(&head_a, &head_b);
     printlist(&head_a, &head_b);
 	/* Check list for numbers, dups, intmax/min, already sorted*/

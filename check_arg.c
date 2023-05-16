@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-sous <tde-sous@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:58:12 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/10 15:30:33 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/16 21:06:30 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void ft_checkmax(char **argv)
 		nb = ft_atol(argv[x++]);
 		if(nb < INT_MIN || nb > INT_MAX)
 		{
-			ft_printf("erro");
+			ft_printf("Arg not int");
 			exit(1);
 		}
 	}
@@ -49,7 +49,7 @@ void ft_checkdigit(char **argv)
 		while(argv[x][i]){
 			if(ft_isdigit(argv[x][i]) == 0)
 			{
-				ft_printf("erro");
+				ft_printf("Arg not a digit");
 				exit(1);
 			}
 			i++;

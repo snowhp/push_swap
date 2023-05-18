@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:04:26 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/16 22:15:07 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:23:12 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void    ft_sort2(t_stack **head_a);
 void	ft_checkdups(t_stack **head_a);
 void    ft_sort3(t_stack **head);
 int		ft_listsorted(t_stack **head);
+void	ft_sort5(t_stack **head_a, t_stack **head_b, int size);
 
 #endif

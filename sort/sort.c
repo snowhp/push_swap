@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:56:03 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/16 22:17:08 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/18 21:40:10 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,22 @@ void ft_sortlist(t_stack **head_a, t_stack **head_b)
 		ft_sort2(head_a);
 	if (size == 3)
 		ft_sort3(head_a);
+	if (size == 4 || size == 5)
+		ft_sort5(head_a, head_b, size);
+}
+
+void	ft_sort5(t_stack **head_a, t_stack **head_b, int size)
+{
+	ft_push(head_a, head_b, 'b');
+	if (size == 5)
+		ft_push(head_a, head_b, 'b');
+	ft_sort3(head_a);
+	ft_rotateandpush(head_a, head_b);
+}
+
+void	ft_rotateandpush(t_stack **head_a, t_stack **head_b)
+{
+	/* TODO */
 }
 
 int     ft_listsize(t_stack **head_a)

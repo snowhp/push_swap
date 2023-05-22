@@ -18,7 +18,7 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT_LIB)
 	$(CC) $(FLAGS) $(OBJS) $(LIBFT_LIB) -o $(NAME)
 
 %.o: %.c
@@ -27,7 +27,7 @@ $(NAME): $(OBJS) $(LIBFT)
 debug: $(OBJS) $(LIBFT)
 	$(CC) $(FLAGS) -g $(SRCS) $(LIBFT_LIB) -o $(NAME)
 
-$(LIBFT):
+$(LIBFT_LIB):
 	cd $(LIBFT_DIR) && $(MAKE)
 
 clean:

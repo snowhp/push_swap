@@ -24,7 +24,7 @@ $(NAME): $(OBJS) $(LIBFT_LIB)
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
-debug: $(OBJS) $(LIBFT)
+debug: $(OBJS) $(LIBFT_LIB)
 	$(CC) $(FLAGS) -g $(SRCS) $(LIBFT_LIB) -o $(NAME)
 
 $(LIBFT_LIB):

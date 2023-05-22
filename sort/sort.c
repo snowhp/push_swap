@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:56:03 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/22 14:20:55 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:21:23 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void ft_sortlist(t_stack **head_a, t_stack **head_b)
 {
 	int size;
-	(void) head_b;
-	size = ft_listsize(head_a);
-	ft_printf("List size: %i\n", size);
 
+	size = ft_listsize(head_a);
 	if (size == 2)
 		ft_sort2(head_a);
 	if (size == 3)
@@ -29,18 +27,51 @@ void ft_sortlist(t_stack **head_a, t_stack **head_b)
 
 void	ft_sort5(t_stack **head_a, t_stack **head_b, int size)
 {
-	ft_push(head_a, head_b, 'b');
+	t_stack *min;
+	t_stack *max;
+
+	min = ft_findmin(head_a);
+	ft_autopush(min, head_a, head_b, 'b');
 	if (size == 5)
-		ft_push(head_a, head_b, 'b');
+	{
+		max = ft_findmax(head_a);
+		ft_autopush(max, head_a, head_b, 'b');
+	}
 	ft_sort3(head_a);
-	ft_insertinsortlist(head_a, head_b);
 	if (size == 5)
-		ft_insertinsortlist(head_a, head_b);
+	{
+		ft_push(head_b, head_a, 'a');
+		ft_rotateup(head_a, 'a');
+	}
+	ft_push(head_b, head_a, 'a');
 }
 
-void	ft_insertinsortlist(t_stack **head_a, t_stack **head_b)
+void ft_autopush(t_stack *node, t_stack **head_o, t_stack **head_d, char c)
 {
-	int	max;
+	char	r;
+
+	if (c == 'b')
+		r = 'a';
+	if (c == 'a')
+		r = 'b';
+	if(ft_listpos(node, head_o) <= ft_listsize(head_o) / 2)
+	{
+		while(node != (*head_o))
+			ft_rotateup(head_o, r);
+		ft_push(head_o, head_d, c);
+	}
+	else
+	{
+		while(node != (*head_o))
+			ft_rotatedown(head_o, r);
+		ft_push(head_o, head_d, c);
+	}
+
+}
+
+/* void	ft_insertinsortlist(t_stack **head_a, t_stack **head_b)
+{
+	int	*max;
 	unsigned int	rotates;
 
 	max = ft_findmax(head_a);
@@ -59,31 +90,64 @@ void	ft_insertinsortlist(t_stack **head_a, t_stack **head_b)
 	ft_push(head_b, head_a, 'a');
 	while(rotates--)
 		ft_rotatedown(head_a, 'a');
-}
+} */
 
-int	ft_findmax(t_stack **head)
+t_stack	*ft_findmax(t_stack **head)
 {
-	t_stack *current;
-	int		max;
+	t_stack	*current;
+	t_stack	*max;
 
 	current = *head;
-	max = current->content;
+	max = current;
 	while(current)
 	{
-		if (max < current->content)
-			max = current->content;
+		if (max->content < current->content)
+			max = current;
 		current = current->next;
 	}
 	return (max);
 }
 
-int	ft_listsize(t_stack **head_a)
+t_stack	*ft_findmin(t_stack **head)
+{
+	t_stack	*current;
+	t_stack	*min;
+
+	current = *head;
+	min = current;
+	while(current)
+	{
+		if (min->content > current->content)
+			min = current;
+		current = current->next;
+	}
+	return (min);
+}
+
+int	ft_listpos(t_stack *node, t_stack **head)
+{
+	t_stack *current;
+	int	pos;
+
+	pos = 0;
+	current = *head;
+	while (current)
+	{
+		pos++;
+		if (node == current)
+			return (pos);
+		current = current->next;
+	}
+	return (pos);
+}
+
+int	ft_listsize(t_stack **head)
 {
 	t_stack *current;
 	int	size;
 
 	size = 0;
-	current = *head_a;
+	current = *head;
 	while (current)
 	{
 		size++;

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:04:26 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/22 14:09:46 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:09:00 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,17 @@ void	ft_swap(t_stack **head_1, char c);
 void	ft_rotateup(t_stack **head_1, char c);
 void	ft_rotatedown(t_stack **head_1, char c);
 void	ft_sortlist(t_stack **head_a,t_stack **head_b);
-int	ft_listsize(t_stack **head_a);
+int	ft_listsize(t_stack **head);
 void	ft_sort2(t_stack **head_a);
 void	ft_checkdups(t_stack **head_a);
 void	ft_sort3(t_stack **head);
 int	ft_listsorted(t_stack **head);
 void	ft_sort5(t_stack **head_a, t_stack **head_b, int size);
 void	ft_insertinsortlist(t_stack **head_a, t_stack **head_b);
-int	ft_findmax(t_stack **head);
+t_stack	*ft_findmax(t_stack **head);
+t_stack	*ft_findmin(t_stack **head);
 void	ft_exit(char *erromsg, int exitcode);
+void ft_autopush(t_stack *node, t_stack **head_o, t_stack **head_d, char c);
+int	ft_listpos(t_stack *node, t_stack **head);
 
 #endif

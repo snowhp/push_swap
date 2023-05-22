@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:04:26 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/22 16:30:08 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:12:09 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ void		ft_listinput(char **argv, int argc, t_stack **head_a, int i);
 void		printlist(t_stack **head_a, t_stack **head_b);
 void		ft_addtail(t_stack **head, long content);
 
-void		ft_exit(char *erromsg, int exitcode);
+void	ft_exit(char *erromsg, int exitcode, t_stack **head_a, t_stack **head_b);
 
 #endif

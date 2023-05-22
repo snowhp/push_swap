@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 19:49:48 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/22 16:31:41 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:12:05 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 		ft_printf("List is sorted!");
 	else
 		ft_printf("List NOT sorted!");
+	ft_exit(NULL, 0, &head_a, &head_b);
 }
 
 void	ft_insertlist(t_stack **head_a, char **argv)

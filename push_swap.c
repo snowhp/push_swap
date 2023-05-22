@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 19:49:48 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/16 22:16:21 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:14:01 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ int main(int argc, char **argv)
 		return (0);
 	/* Check input */
 	/* Read input */
-	check_arg(argv);
 	head_a = 0;
 	head_b = 0;
 	ft_insertlist(&head_a, argv);
 	ft_printf("Original list \n");
     printlist(&head_a, &head_b);
-	ft_checkdups(&head_a);
     ft_sortlist(&head_a, &head_b);
     printlist(&head_a, &head_b);
-	ft_printf("List is sorted? %i", ft_listsorted(&head_a));
+	if (!ft_listsorted(&head_a))
+		ft_printf("List is sorted!");
+	else
+		ft_printf("List NOT sorted!");
 	/* Check list for numbers, dups, intmax/min, already sorted*/
 	/* ft_exit */
 	/* Moves */
@@ -46,11 +47,13 @@ void ft_insertlist(t_stack **head_a, char **argv)
 	int	nb;
 
 	x = 1;
+	check_arg(argv);
 	while(argv[x])
 	{
 		nb = ft_atoi(argv[x++]);
 		ft_addtail(head_a, nb);
 	}
+	ft_checkdups(head_a);
 }
 
 void	printlist(t_stack **head_a, t_stack **head_b)

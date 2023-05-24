@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:56:03 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/24 13:58:18 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:58:21 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ void	ft_sortlist(t_stack **head_a, t_stack **head_b)
 	if (size == 4 || size == 5)
 		ft_sort5(head_a, head_b, size);
 	if (size > 5)
+	{
 		ft_listindex(head_a, 1);
-	else
-		return ;
-	if (size > 5 && size <= 100)
-		ft_sort100(head_a, head_b);
+		ft_sort500(head_a, head_b);
+	}
 
 }
 
@@ -88,9 +87,9 @@ void	ft_sort5(t_stack **head_a, t_stack **head_b, int size)
 	ft_push(head_b, head_a, 'a');
 }
 
-void	ft_sort100(t_stack **head_a, t_stack **head_b)
+void	ft_sort500(t_stack **head_a, t_stack **head_b)
 {
-	t_stack	*min;
+/* 	t_stack	*min;
 
 	while (*head_a)
 	{
@@ -98,6 +97,23 @@ void	ft_sort100(t_stack **head_a, t_stack **head_b)
 		ft_autopush(min, head_a, head_b, 'b');
 	}
 	while (*head_b)
-		ft_push(head_b, head_a, 'b');
+		ft_push(head_b, head_a, 'b'); */
+	int		size;
+
+	size = ft_listsize(head_a);
+	ft_push(head_a, head_b, 'b');
+	ft_push(head_a, head_b, 'b');
+	while(ft_listsorted(head_a) && size == ft_listsize(head_a))
+		ft_bestmove(head_a, head_b);
 }
 
+void	ft_bestmove(t_stack **head_a, t_stack **head_b)
+{
+	t_stack	*current;
+
+	current = *head_a;
+	while (current)
+	{
+
+	}
+}

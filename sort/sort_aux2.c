@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:34:34 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/22 15:50:49 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:59:02 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,54 @@ int	ft_listsorted(t_stack **head)
 		current = current->next;
 	}
 	return (0);
+}
+
+void	ft_listindex(t_stack **head, int index)
+{
+	/* int		index;
+	int		content;
+	t_stack	*current;
+
+	index = 1;
+	content = (*head)->content;
+	current = current->next;
+	while (current)
+	{
+		if (current->content < content && !current->index)
+			content = current->content;
+		if (!current->next)
+
+		current = current->next;
+	} */
+
+	t_stack	*current;
+	t_stack	*min;
+
+	current = *head;
+	min = NULL;
+	while (current)
+	{
+		if (!min && !current->index)
+			min = current;
+		if (min && !current->index && min->content > current->content)
+			min = current;
+		current = current->next;
+	}
+	min->index = index;
+	if (ft_islistindex(head) == 0)
+		ft_listindex (head, ++index);
+}
+
+int	ft_islistindex(t_stack **head)
+{
+	t_stack	*current;
+
+	current = *head;
+	while (current)
+	{
+		if (!current->index)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }

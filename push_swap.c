@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 19:49:48 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/22 17:12:05 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:04:29 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ft_addtail(t_stack **head, long content)
 		return ;
 	lst->content = content;
 	lst->next = NULL;
+	lst->index = 0;
 	if (!(*head))
 	{
 		free(*head);

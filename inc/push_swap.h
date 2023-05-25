@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:04:26 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 12:52:20 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:34:12 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ typedef struct s_moves
 /*	Moves		*/
 void		ft_push(t_stack **head_o, t_stack **head_d, char c);
 void		ft_swap(t_stack **head_1, char c);
+/* ra/rb */
 void		ft_rotateup(t_stack **head_1, char c);
+/* rra/rrb */
 void		ft_rotatedown(t_stack **head_1, char c);
 void		ft_doublerotate(t_stack **head_a, t_stack **head_b);
 void		ft_doublerevrotate(t_stack **head_a, t_stack **head_b);

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:56:03 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 12:53:01 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:47:52 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,17 +98,14 @@ void	ft_sort500(t_stack **head_a, t_stack **head_b)
 	}
 	while (*head_b)
 		ft_push(head_b, head_a, 'b'); */
-	int		size;
-
-	size = ft_listsize(head_a);
 	ft_push(head_a, head_b, 'b');
 	ft_push(head_a, head_b, 'b');
-	while (ft_listsorted(head_a) && ft_listsize(head_a) > 0)
+	while (ft_listsize(head_a) > 0)
 	{
 		ft_bestmove(head_a, head_b);
 		ft_push(head_a, head_b, 'b');
 	}
-	while (ft_listsize(head_b) < 0)
+	while (ft_listsize(head_b) > 0)
 		ft_push(head_b, head_a, 'a');
 }
 
@@ -119,26 +116,25 @@ void	ft_bestmove(t_stack **head_a, t_stack **head_b)
 	t_moves	best;
 	t_stack	*match;
 
+	if (ft_listsize(head_a) == 1)
+		return ;
 	ft_initstruct(&best);
 	current = (*head_a);
 	while (current)
 	{
 		ft_initstruct(&moves);
 		moves.index = current->index;
+		moves.node = current;
 		ft_countrotates(current, head_a, &moves, 'a');
 		match = ft_matchB(head_b, current->index);
 		ft_countrotates(match, head_b, &moves, 'b');
 		ft_otimizerotates(&moves);
 		if (best.index == 0)
-		{
-			best.node = current;
 			best = moves;
-		}
 		if (moves.total < best.total)
-		{
-			best.node = current;
 			best = moves;
-		}
+		/*if (moves.total == 0)
+			return ;*/
 		current = current->next;
 	}
 	ft_executerotates(head_a, head_b, best);
@@ -146,18 +142,36 @@ void	ft_bestmove(t_stack **head_a, t_stack **head_b)
 
 void	ft_executerotates(t_stack **head_a, t_stack **head_b, t_moves moves)
 {
-	while(moves.ra--)
+	while(moves.ra)
+	{
 		ft_rotateup(head_a, 'a');
-	while(moves.rb--)
+		moves.ra--;
+	}
+	while(moves.rb)
+	{
 		ft_rotateup(head_b, 'b');
-	while(moves.rr--)
+		moves.rb--;
+	}
+	while(moves.rr)
+	{
 		ft_doublerotate(head_a, head_b);
-	while(moves.rra--)
+		moves.rr--;
+	}
+	while(moves.rra)
+	{
 		ft_rotatedown(head_a, 'a');
-	while(moves.rrb--)
-		ft_rotateup(head_b, 'b');
-	while(moves.rrr--)
+		moves.rra--;
+	}
+	while(moves.rrb)
+	{
+		ft_rotatedown(head_b, 'b');
+		moves.rrb--;
+	}
+	while(moves.rrr)
+	{
 		ft_doublerevrotate(head_a, head_b);
+		moves.rrr--;
+	}
 }
 
 void	ft_countrotates(t_stack *current, t_stack **head_a, t_moves *moves, char c)
@@ -226,4 +240,10 @@ void	ft_otimizerotates(t_moves *moves)
 		moves->rrb--;
 		moves->rrr++;
 	}
+	moves->total += moves->ra;
+	moves->total += moves->rb;
+	moves->total += moves->rr;
+	moves->total += moves->rra;
+	moves->total += moves->rrb;
+	moves->total += moves->rrr;
 }

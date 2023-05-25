@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:04:26 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/24 14:49:46 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:52:20 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,26 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+typedef struct s_moves
+{
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+	int		index;
+	t_stack	*node;
+	int		total;
+}	t_moves;
+
 /*	Moves		*/
 void		ft_push(t_stack **head_o, t_stack **head_d, char c);
 void		ft_swap(t_stack **head_1, char c);
 void		ft_rotateup(t_stack **head_1, char c);
 void		ft_rotatedown(t_stack **head_1, char c);
+void		ft_doublerotate(t_stack **head_a, t_stack **head_b);
+void		ft_doublerevrotate(t_stack **head_a, t_stack **head_b);
 
 /*	Moves aux	*/
 void		ft_autopush(t_stack *n, t_stack **head_o, t_stack **head_d, char c);
@@ -36,6 +51,12 @@ t_stack		*ft_findmin(t_stack **head);
 int			ft_listpos(t_stack *node, t_stack **head);
 int			ft_listsize(t_stack **head);
 void		ft_insertinsortlist(t_stack **head_a, t_stack **head_b);
+void	ft_countrotates(t_stack *current, t_stack **head_a, t_moves *moves, char c);
+t_stack	*ft_matchB(t_stack **head_b, int index);
+void	ft_bestmove(t_stack **head_a, t_stack **head_b);
+void	ft_initstruct(t_moves *moves);
+void	ft_otimizerotates(t_moves *moves);
+void	ft_executerotates(t_stack **head_a, t_stack **head_b, t_moves moves);
 
 /*	Sorting	*/
 void		ft_sortlist(t_stack **head_a, t_stack **head_b);

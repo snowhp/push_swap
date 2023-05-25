@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 19:49:48 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/24 12:04:29 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:55:32 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int	main(int argc, char **argv)
 	head_a = 0;
 	head_b = 0;
 	ft_insertlist(&head_a, argv);
-	ft_printf("Original list \n");
-	printlist(&head_a, &head_b);
+	//ft_printf("Original list \n");
+	//printlist(&head_a, &head_b);
 	ft_sortlist(&head_a, &head_b);
-	printlist(&head_a, &head_b);
+	/* printlist(&head_a, &head_b);
 	if (!ft_listsorted(&head_a))
 		ft_printf("List is sorted!");
 	else
-		ft_printf("List NOT sorted!");
+		ft_printf("List NOT sorted!"); */
 	ft_exit(NULL, 0, &head_a, &head_b);
 }
 

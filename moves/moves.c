@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:37:06 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/22 15:48:26 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:52:08 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,18 @@ void	ft_rotatedown(t_stack **head_1, char c)
 		ft_printf("rra\n");
 	else if (c == 'b')
 		ft_printf("rrb\n");
+}
+
+void	ft_doublerotate(t_stack **head_a, t_stack **head_b)
+{
+	ft_rotateup(head_a, 0);
+	ft_rotateup(head_b, 0);
+	ft_printf("rr\n");
+}
+
+void	ft_doublerevrotate(t_stack **head_a, t_stack **head_b)
+{
+	ft_rotatedown(head_a, 0);
+	ft_rotatedown(head_b, 0);
+	ft_printf("rrr\n");
 }

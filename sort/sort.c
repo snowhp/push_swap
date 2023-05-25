@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:56:03 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 15:47:52 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:39:28 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ void	ft_sort500(t_stack **head_a, t_stack **head_b)
 	ft_push(head_a, head_b, 'b');
 	while (ft_listsize(head_a) > 0)
 	{
+		ft_printf("---------------\n");
+		printlist(head_a, head_b);
 		ft_bestmove(head_a, head_b);
 		ft_push(head_a, head_b, 'b');
 	}
@@ -116,8 +118,6 @@ void	ft_bestmove(t_stack **head_a, t_stack **head_b)
 	t_moves	best;
 	t_stack	*match;
 
-	if (ft_listsize(head_a) == 1)
-		return ;
 	ft_initstruct(&best);
 	current = (*head_a);
 	while (current)
@@ -125,7 +125,8 @@ void	ft_bestmove(t_stack **head_a, t_stack **head_b)
 		ft_initstruct(&moves);
 		moves.index = current->index;
 		moves.node = current;
-		ft_countrotates(current, head_a, &moves, 'a');
+		if (ft_listsize(head_a) > 1)
+			ft_countrotates(current, head_a, &moves, 'a');
 		match = ft_matchB(head_b, current->index);
 		ft_countrotates(match, head_b, &moves, 'b');
 		ft_otimizerotates(&moves);
@@ -201,10 +202,14 @@ t_stack	*ft_matchB(t_stack **head_b, int index)
 {
 	t_stack	*current;
 	t_stack	*match;
+	t_stack	*max;
 
 	current = (*head_b);
-	match = current;
-	while(current)
+	match = ft_findmin(head_b);
+	max = ft_findmax(head_b);
+	if (index > max->index || index < match->index)
+		return (max);
+	while (current)
 	{
 		if (index > current->index && match->index < current->index)
 			match = current;

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:56:03 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 16:39:28 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:46:04 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,15 +98,18 @@ void	ft_sort500(t_stack **head_a, t_stack **head_b)
 	}
 	while (*head_b)
 		ft_push(head_b, head_a, 'b'); */
+	t_stack	*max;
 	ft_push(head_a, head_b, 'b');
 	ft_push(head_a, head_b, 'b');
 	while (ft_listsize(head_a) > 0)
 	{
-		ft_printf("---------------\n");
-		printlist(head_a, head_b);
+		/* ft_printf("---------------\n");
+		printlist(head_a, head_b); */
 		ft_bestmove(head_a, head_b);
 		ft_push(head_a, head_b, 'b');
 	}
+	max = ft_findmax(head_b);
+	ft_autopush(max, head_b, head_a, 'a');
 	while (ft_listsize(head_b) > 0)
 		ft_push(head_b, head_a, 'a');
 }

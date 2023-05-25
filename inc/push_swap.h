@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:04:26 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 14:34:12 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:41:04 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct s_stack
 {
 	long			content;
-	int			index;
+	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -53,12 +53,12 @@ t_stack		*ft_findmin(t_stack **head);
 int			ft_listpos(t_stack *node, t_stack **head);
 int			ft_listsize(t_stack **head);
 void		ft_insertinsortlist(t_stack **head_a, t_stack **head_b);
-void	ft_countrotates(t_stack *current, t_stack **head_a, t_moves *moves, char c);
-t_stack	*ft_matchB(t_stack **head_b, int index);
-void	ft_bestmove(t_stack **head_a, t_stack **head_b);
-void	ft_initstruct(t_moves *moves);
-void	ft_otimizerotates(t_moves *moves);
-void	ft_executerotates(t_stack **head_a, t_stack **head_b, t_moves moves);
+void		ft_crotates(t_stack *cu, t_stack **head_a, t_moves *moves, char c);
+t_stack		*ft_matchB(t_stack **head_b, int index);
+void		ft_bestmove(t_stack **head_a, t_stack **head_b);
+void		ft_initstruct(t_moves *moves);
+void		ft_otimizerotates(t_moves *moves);
+void		ft_execrotates(t_stack **head_a, t_stack **head_b, t_moves moves);
 
 /*	Sorting	*/
 void		ft_sortlist(t_stack **head_a, t_stack **head_b);
@@ -68,18 +68,18 @@ void		ft_sort5(t_stack **head_a, t_stack **head_b, int size);
 void		ft_sort500(t_stack **head_a, t_stack **head_b);
 
 /*	Checking && Input	*/
-void		check_arg(char **argv);
-void		ft_checkdigit(char **argv);
-void		ft_checkmax(char **argv);
+void	ft_checkdigit(char **argv, int x);
+void	ft_checkmax(char **argv, int x);
 void		ft_checkdups(t_stack **head_a);
 int			ft_listsorted(t_stack **head);
 void		ft_listindex(t_stack **head, int index);
-int		ft_islistindex(t_stack **head);
-void		ft_insertlist(t_stack **head_a, char **argv);
+int			ft_islistindex(t_stack **head);
+void	ft_insertlist(t_stack **head_a, char **argv, int x);
 void		ft_listinput(char **argv, int argc, t_stack **head_a, int i);
 void		printlist(t_stack **head_a, t_stack **head_b);
 void		ft_addtail(t_stack **head, long content);
 
 void		ft_exit(char *erromsg, int c, t_stack **head_a, t_stack **head_b);
+void	ft_freearray(char **str);
 
 #endif

@@ -6,17 +6,11 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:58:12 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/22 17:13:40 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:29:37 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
-
-void	check_arg(char **argv)
-{
-	ft_checkdigit(argv);
-	ft_checkmax(argv);
-}
 
 void	ft_checkdups(t_stack **head_a)
 {
@@ -38,12 +32,10 @@ void	ft_checkdups(t_stack **head_a)
 	}
 }
 
-void	ft_checkmax(char **argv)
+void	ft_checkmax(char **argv, int x)
 {
 	long	nb;
-	int		x;
 
-	x = 1;
 	while (argv[x])
 	{
 		nb = ft_atol(argv[x++]);
@@ -52,12 +44,10 @@ void	ft_checkmax(char **argv)
 	}
 }
 
-void	ft_checkdigit(char **argv)
+void	ft_checkdigit(char **argv, int x)
 {
 	int	i;
-	int	x;
 
-	x = 1;
 	i = 0;
 	while (argv[x])
 	{

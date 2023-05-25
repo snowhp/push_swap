@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:56:03 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 16:46:04 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:07:09 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_sortlist(t_stack **head_a, t_stack **head_b)
 		ft_listindex(head_a, 1);
 		ft_sort500(head_a, head_b);
 	}
-
 }
 
 void	ft_sort2(t_stack **head_a)
@@ -89,22 +88,12 @@ void	ft_sort5(t_stack **head_a, t_stack **head_b, int size)
 
 void	ft_sort500(t_stack **head_a, t_stack **head_b)
 {
-/* 	t_stack	*min;
-
-	while (*head_a)
-	{
-		min = ft_findmin(head_a);
-		ft_autopush(min, head_a, head_b, 'b');
-	}
-	while (*head_b)
-		ft_push(head_b, head_a, 'b'); */
 	t_stack	*max;
+
 	ft_push(head_a, head_b, 'b');
 	ft_push(head_a, head_b, 'b');
 	while (ft_listsize(head_a) > 0)
 	{
-		/* ft_printf("---------------\n");
-		printlist(head_a, head_b); */
 		ft_bestmove(head_a, head_b);
 		ft_push(head_a, head_b, 'b');
 	}
@@ -129,62 +118,60 @@ void	ft_bestmove(t_stack **head_a, t_stack **head_b)
 		moves.index = current->index;
 		moves.node = current;
 		if (ft_listsize(head_a) > 1)
-			ft_countrotates(current, head_a, &moves, 'a');
+			ft_crotates(current, head_a, &moves, 'a');
 		match = ft_matchB(head_b, current->index);
-		ft_countrotates(match, head_b, &moves, 'b');
+		ft_crotates(match, head_b, &moves, 'b');
 		ft_otimizerotates(&moves);
 		if (best.index == 0)
 			best = moves;
 		if (moves.total < best.total)
 			best = moves;
-		/*if (moves.total == 0)
-			return ;*/
 		current = current->next;
 	}
-	ft_executerotates(head_a, head_b, best);
+	ft_execrotates(head_a, head_b, best);
 }
 
-void	ft_executerotates(t_stack **head_a, t_stack **head_b, t_moves moves)
+void	ft_execrotates(t_stack **head_a, t_stack **head_b, t_moves moves)
 {
-	while(moves.ra)
+	while (moves.ra)
 	{
 		ft_rotateup(head_a, 'a');
 		moves.ra--;
 	}
-	while(moves.rb)
+	while (moves.rb)
 	{
 		ft_rotateup(head_b, 'b');
 		moves.rb--;
 	}
-	while(moves.rr)
+	while (moves.rr)
 	{
 		ft_doublerotate(head_a, head_b);
 		moves.rr--;
 	}
-	while(moves.rra)
+	while (moves.rra)
 	{
 		ft_rotatedown(head_a, 'a');
 		moves.rra--;
 	}
-	while(moves.rrb)
+	while (moves.rrb)
 	{
 		ft_rotatedown(head_b, 'b');
 		moves.rrb--;
 	}
-	while(moves.rrr)
+	while (moves.rrr)
 	{
 		ft_doublerevrotate(head_a, head_b);
 		moves.rrr--;
 	}
 }
 
-void	ft_countrotates(t_stack *current, t_stack **head_a, t_moves *moves, char c)
+void	ft_crotates(t_stack *cu, t_stack **head_a, t_moves *moves, char c)
 {
 	int	pos;
 	int	lsize;
 
 	lsize = ft_listsize(head_a);
-	pos = ft_listpos(current, head_a);
+	pos = ft_listpos(cu, head_a);
 	if (pos <= lsize / 2)
 	{
 		if (c == 'a')
@@ -236,13 +223,13 @@ void	ft_initstruct(t_moves *moves)
 
 void	ft_otimizerotates(t_moves *moves)
 {
-	while(moves->ra >= 1 && moves->rb >= 1)
+	while (moves->ra >= 1 && moves->rb >= 1)
 	{
 		moves->ra--;
 		moves->rb--;
 		moves->rr++;
 	}
-	while(moves->rra >= 1 && moves->rrb >= 1)
+	while (moves->rra >= 1 && moves->rrb >= 1)
 	{
 		moves->rra--;
 		moves->rrb--;

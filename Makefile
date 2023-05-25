@@ -2,6 +2,7 @@ SRCS = push_swap.c\
 		error/error.c \
 		check_arg.c \
 		moves/moves.c \
+		moves/moves1.c \
 		sort/sort.c \
 		sort/sort_aux.c \
 		sort/sort_aux2.c \

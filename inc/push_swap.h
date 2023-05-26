@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:04:26 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 11:35:43 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:15:40 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void		ft_sort500(t_stack **head_a, t_stack **head_b);
 
 void		ft_checkdigit(char **argv, int x);
 void		ft_checkmax(char **argv, int x);
-void		ft_checkdups(t_stack **head_a);
+void		ft_checkdups(t_stack **head_a, char **argv, int x);
 int			ft_listsorted(t_stack **head);
 void		ft_listindex(t_stack **head, int index);
 int			ft_islistindex(t_stack **head);

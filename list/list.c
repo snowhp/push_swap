@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:44:08 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 10:44:19 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:16:33 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_insertlist(t_stack **head_a, char **argv, int x)
 		ft_exit(1, head_a, NULL);
 	if (ft_listsize(head_a) == 1)
 		ft_exit(0, head_a, NULL);
-	ft_checkdups(head_a);
+	ft_checkdups(head_a, argv, x);
 }
 
 void	printlist(t_stack **head_a, t_stack **head_b)

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:58:12 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 17:29:37 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 09:11:31 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_checkdups(t_stack **head_a)
 		while (i)
 		{
 			if ((long)i->content == (long)current->content)
-				ft_exit("Duplicated params", 1, head_a, NULL);
+				ft_exit(1, head_a, NULL);
 			i = i->next;
 		}
 		current = current->next;
@@ -40,7 +40,7 @@ void	ft_checkmax(char **argv, int x)
 	{
 		nb = ft_atol(argv[x++]);
 		if (nb < INT_MIN || nb > INT_MAX)
-			ft_exit("Non integer param", 1, NULL, NULL);
+			ft_exit(1, NULL, NULL);
 	}
 }
 
@@ -57,7 +57,7 @@ void	ft_checkdigit(char **argv, int x)
 		while (argv[x][i])
 		{
 			if (ft_isdigit(argv[x][i]) == 0)
-				ft_exit("Non numeric param", 1, NULL, NULL);
+				ft_exit(1, NULL, NULL);
 			i++;
 		}
 		x++;

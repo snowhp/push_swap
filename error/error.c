@@ -6,18 +6,18 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 22:31:49 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 17:40:49 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 09:10:51 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ft_exit(char *erromsg, int c, t_stack **head_a, t_stack **head_b)
+void	ft_exit(int c, t_stack **head_a, t_stack **head_b)
 {
 	t_stack	*next;
 
 	if (c != 0)
-		ft_printf("Error\n%s", erromsg);
+		ft_stderprint("Error\n");
 	if (head_a)
 	{
 		while (*head_a != NULL)

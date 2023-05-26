@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 12:56:03 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 17:07:09 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 09:36:53 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_sortlist(t_stack **head_a, t_stack **head_b)
 	int	size;
 
 	if (!ft_listsorted(head_a) || ft_listsize(head_a) == 1)
-		ft_exit("List is sorted", 1, head_a, head_b);
+		ft_exit(0, head_a, head_b);
 	size = ft_listsize(head_a);
 	if (size == 2)
 		ft_sort2(head_a);

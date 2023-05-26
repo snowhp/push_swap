@@ -6,11 +6,11 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:58:12 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 09:11:31 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 10:01:03 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 void	ft_checkdups(t_stack **head_a)
 {

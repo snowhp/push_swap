@@ -6,34 +6,11 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:34:34 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/24 12:59:02 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 10:00:14 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-/* void	ft_insertinsortlist(t_stack **head_a, t_stack **head_b)
-{
-	int	*max;
-	unsigned int	rotates;
-
-	max = ft_findmax(head_a);
-	if ((*head_b)->content > max)
-	{
-		ft_push(head_b, head_a, 'a');
-		ft_rotateup(head_a, 'a');
-		return ;
-	}
-	rotates = 0;
-	while((*head_b)->content > (*head_a)->content)
-	{
-		ft_rotateup(head_a, 'a');
-		rotates++;
-	}
-	ft_push(head_b, head_a, 'a');
-	while(rotates--)
-		ft_rotatedown(head_a, 'a');
-} */
 
 int	ft_listsorted(t_stack **head)
 {
@@ -51,22 +28,6 @@ int	ft_listsorted(t_stack **head)
 
 void	ft_listindex(t_stack **head, int index)
 {
-	/* int		index;
-	int		content;
-	t_stack	*current;
-
-	index = 1;
-	content = (*head)->content;
-	current = current->next;
-	while (current)
-	{
-		if (current->content < content && !current->index)
-			content = current->content;
-		if (!current->next)
-
-		current = current->next;
-	} */
-
 	t_stack	*current;
 	t_stack	*min;
 
@@ -97,4 +58,39 @@ int	ft_islistindex(t_stack **head)
 		current = current->next;
 	}
 	return (1);
+}
+
+void	ft_otimizerotates(t_moves *moves)
+{
+	while (moves->ra >= 1 && moves->rb >= 1)
+	{
+		moves->ra--;
+		moves->rb--;
+		moves->rr++;
+	}
+	while (moves->rra >= 1 && moves->rrb >= 1)
+	{
+		moves->rra--;
+		moves->rrb--;
+		moves->rrr++;
+	}
+	moves->total += moves->ra;
+	moves->total += moves->rb;
+	moves->total += moves->rr;
+	moves->total += moves->rra;
+	moves->total += moves->rrb;
+	moves->total += moves->rrr;
+}
+
+void	ft_initstruct(t_moves *moves)
+{
+	moves->ra = 0;
+	moves->rb = 0;
+	moves->rr = 0;
+	moves->rra = 0;
+	moves->rrb = 0;
+	moves->rrr = 0;
+	moves->index = 0;
+	moves->node = 0;
+	moves->total = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:37:06 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/25 17:03:49 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 13:50:29 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	ft_rotateup(t_stack **head_1, char c)
 	t_stack	*temp;
 	t_stack	*current;
 
+	if (!(*head_1)->next)
+		return ;
 	temp = *head_1;
 	(*head_1) = (*head_1)->next;
 	current = *head_1;
@@ -68,6 +70,8 @@ void	ft_rotatedown(t_stack **head_1, char c)
 {
 	t_stack	*current;
 
+	if (!(*head_1)->next)
+		return ;
 	current = *head_1;
 	while (current->next->next)
 		current = current->next;

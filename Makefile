@@ -56,6 +56,6 @@ clean:
 
 fclean: clean
 	cd $(LIBFT_DIR) && $(MAKE) fclean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(CHECKER)
 
 re: fclean all

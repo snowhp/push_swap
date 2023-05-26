@@ -43,6 +43,7 @@ SRCS = ft_strchr.c \
                           ft_joinsplit.c \
                           ft_countchar.c \
                           ft_atol.c \
+                          ft_stderprint.c \
 
 BNS_SRCS = ft_lstnew.c \
             ft_lstadd_front.c \

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:05:32 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 11:32:57 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:44:28 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int	main(int argc, char **argv)
 	t_stack	*head_a;
 	t_stack	*head_b;
 
+	if (argc == 1)
+		return (0);
 	head_a = 0;
 	head_b = 0;
 	if (argv[1][0] == 0)
-		ft_exit(1, NULL, NULL);
+		ft_exit(0, NULL, NULL);
 	if (argc == 2)
 	{
 		argv2 = ft_split(argv[1], ' ');

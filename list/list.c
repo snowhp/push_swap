@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:44:08 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 14:16:33 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:24:29 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	ft_insertlist(t_stack **head_a, char **argv, int x)
 {
 	int	nb;
+	int	tempx;
 
+	tempx = x;
 	ft_checkdigit(argv, x);
 	ft_checkmax(argv, x);
 	while (argv[x])
@@ -24,10 +26,18 @@ void	ft_insertlist(t_stack **head_a, char **argv, int x)
 		ft_addtail(head_a, nb);
 	}
 	if (ft_listsize(head_a) == 0)
+	{
+		if (!tempx)
+			ft_freearray(argv);
 		ft_exit(1, head_a, NULL);
+	}
 	if (ft_listsize(head_a) == 1)
+	{
+		if (!tempx)
+			ft_freearray(argv);
 		ft_exit(0, head_a, NULL);
-	ft_checkdups(head_a, argv, x);
+	}
+	ft_checkdups(head_a, argv, tempx);
 }
 
 void	printlist(t_stack **head_a, t_stack **head_b)

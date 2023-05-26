@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:05:32 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 13:43:41 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 13:58:22 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	main(int argc, char **argv)
 	else
 		ft_insertlist(&head_a, argv, 1);
 	ft_execmove(&head_a, &head_b);
-	ft_checkerverification(&head_a, &head_b);
 	ft_exit(0, &head_a, &head_b);
 }
 
@@ -56,6 +55,7 @@ void	ft_execmove(t_stack **head_a, t_stack **head_b)
 		move = get_next_line(STDIN_FILENO);
 	}
 	free(move);
+	ft_checkerverification(head_a, head_b);
 }
 
 int	ft_moves(char *move, int size, t_stack **head_a, t_stack **head_b)

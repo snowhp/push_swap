@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 22:31:49 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 09:54:29 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 10:37:16 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ void	ft_exit(int c, t_stack **head_a, t_stack **head_b)
 		}
 	}
 	exit (c);
+}
+
+void	ft_checkerverification(t_stack **head_a, t_stack **head_b)
+{
+	if (!ft_listsorted(head_a) && ft_listsize(head_b) == 0)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 }
 
 void	ft_freearray(char **str)

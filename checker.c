@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:05:32 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 11:44:28 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/26 13:43:41 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,15 @@ void	ft_execmove(t_stack **head_a, t_stack **head_b)
 {
 	char	*move;
 
-	while (1)
+	move = ft_strdup("");
+	while (move)
 	{
-		move = get_next_line(STDOUT_FILENO);
-		if (!move)
-			break ;
-		if (ft_moves(move, ft_strlen(move), head_a, head_b) == 0)
-		{
-			ft_stderprint("Error\n");
-			break ;
-		}
+		if (move[0] != '\0')
+			ft_moves(move, ft_strlen(move), head_a, head_b);
 		free(move);
+		move = get_next_line(STDIN_FILENO);
 	}
+	free(move);
 }
 
 int	ft_moves(char *move, int size, t_stack **head_a, t_stack **head_b)

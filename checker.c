@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:05:32 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 13:58:22 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/27 16:38:19 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,13 @@ void	ft_execmove(t_stack **head_a, t_stack **head_b)
 	while (move)
 	{
 		if (move[0] != '\0')
-			ft_moves(move, ft_strlen(move), head_a, head_b);
+		{
+			if (ft_moves(move, ft_strlen(move), head_a, head_b) == 0)
+			{
+				free(move);
+				ft_exit(1, head_a, head_b);
+			}
+		}
 		free(move);
 		move = get_next_line(STDIN_FILENO);
 	}

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:05:32 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/27 16:38:19 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:54:26 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_moves(char *move, int size, t_stack **head_a, t_stack **head_b)
 	else if (!ft_strncmp(move, "sb\n", size))
 		ft_swap(head_b, 0);
 	else if (!ft_strncmp(move, "ss\n", size))
-		ft_doubleswap(head_a, head_b);
+		ft_doubleswap(head_a, head_b, 1);
 	else if (!ft_strncmp(move, "pa\n", size))
 		ft_push(head_b, head_a, 0);
 	else if (!ft_strncmp(move, "pb\n", size))
@@ -81,13 +81,13 @@ int	ft_moves(char *move, int size, t_stack **head_a, t_stack **head_b)
 	else if (!ft_strncmp(move, "rb\n", size))
 		ft_rotateup(head_b, 0);
 	else if (!ft_strncmp(move, "rr\n", size))
-		ft_doublerotate(head_a, head_b);
+		ft_doublerotate(head_a, head_b, 1);
 	else if (!ft_strncmp(move, "rra\n", size))
 		ft_rotatedown(head_a, 0);
 	else if (!ft_strncmp(move, "rrb\n", size))
 		ft_rotatedown(head_b, 0);
 	else if (!ft_strncmp(move, "rrr\n", size))
-		ft_doublerevrotate(head_a, head_b);
+		ft_doublerevrotate(head_a, head_b, 1);
 	else
 		return (0);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:04:26 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 14:15:40 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:54:48 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void		ft_swap(t_stack **head_1, char c);
 void		ft_rotateup(t_stack **head_1, char c);
 /* rra/rrb */
 void		ft_rotatedown(t_stack **head_1, char c);
-void		ft_doublerotate(t_stack **head_a, t_stack **head_b);
-void		ft_doublerevrotate(t_stack **head_a, t_stack **head_b);
+void		ft_doublerevrotate(t_stack **head_a, t_stack **head_b, int checker);
+void		ft_doublerotate(t_stack **head_a, t_stack **head_b, int checker);
 /* ss */
-void		ft_doubleswap(t_stack **head_a, t_stack **head_b);
+void		ft_doubleswap(t_stack **head_a, t_stack **head_b, int checker);
 
 /*	Moves aux	*/
 

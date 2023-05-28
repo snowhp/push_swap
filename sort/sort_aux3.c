@@ -6,7 +6,7 @@
 /*   By: tde-sous <tde-sous@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:56:04 by tde-sous          #+#    #+#             */
-/*   Updated: 2023/05/26 10:01:42 by tde-sous         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:53:59 by tde-sous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_execrotates(t_stack **head_a, t_stack **head_b, t_moves moves)
 	}
 	while (moves.rr)
 	{
-		ft_doublerotate(head_a, head_b);
+		ft_doublerotate(head_a, head_b, 0);
 		moves.rr--;
 	}
 	ft_execrotates2(head_a, head_b, moves);
@@ -74,7 +74,7 @@ void	ft_execrotates2(t_stack **head_a, t_stack **head_b, t_moves moves)
 	}
 	while (moves.rrr)
 	{
-		ft_doublerevrotate(head_a, head_b);
+		ft_doublerevrotate(head_a, head_b, 0);
 		moves.rrr--;
 	}
 }
